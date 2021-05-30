@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Create New Notebook</title>
+</head>
+<body class="container">
+<div th:replace="header"></div>
+<div class="container">
+    <h2>Create New Notebook</h2>
+
+    <form th:action="@{|/create|}" th:object="${notebook}" method="post" class="form-group">
+
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{model}" placeholder="Input model">
+        </div>
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{producer}" placeholder="Input producer">
+        </div>
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{processor}" placeholder="Input processor">
+        </div>
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{memory}" placeholder="Input memory">
+        </div>
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{price}" placeholder="Input price">
+        </div>
+        <div class="form-group">
+            <input type="text" name="text" th:field="*{frameType}" placeholder="Input frameType">
+        </div>
+        <div class="form-group">
+
+        </div>
+        <input class="btn btn-info" type="submit" value="Create"/>
+        <input class="btn btn" type="reset" value="Clear"/>
+    </form>
+</div>
+</body>
+</html>

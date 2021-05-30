@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body class="container">
+<div th:replace="header"></div>
+<div>
+    <div class="col-sm-offset-2 col-sm-6">
+        <form th:action="@{/create}" method="get">
+            <input type="submit" value="Create notebook" class="btn btn-info">
+        </form>
+
+        <br>
+        <form th:action="@{/home}" method="get">
+            <input type="submit" value="Get all notebooks" class="btn btn-info">
+        </form>
+
+        <br>
+        <form th:action="@{/allSortedByProducer}" method="get">
+            <input type="submit" value="Get all notebooks sorted by producer" class="btn btn-info">
+        </form>
+
+        <br>
+        <form th:action="@{/getNotesWithMemoryGreaterThan16}" method="get">
+            <input type="submit" value="Get all notebooks with memory more than 16" class="btn btn-info">
+        </form>
+
+        <br>
+        <form th:action="@{/getNotesByMemory}" method="get">
+            <input type="submit" value="Get all notebooks with memory 16" class="btn btn-info">
+        </form>
+
+        <br>
+        <form th:action="@{/getUsedNotes}" method="get">
+            <input type="submit" value="Get all used notebooks " class="btn btn-info">
+        </form>
+        <br>
+
+    </div>
+
+    <table border="1" class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Producer</th>
+            <th>Processor</th>
+            <th>Memory</th>
+            <th>IsUsed</th>
+            <th>Frame Type</th>
+            <th>Price</th>
+            <th>Birthday</th>
+        </tr>
+        <tr th:each="notebook: ${notebooks}">
+            <td th:text="${notebook.id}"/>
+            <td th:text="${notebook.model}"/>
+            <td th:text="${notebook.producer}"/>
+            <td th:text="${notebook.processor}"/>
+            <td th:text="${notebook.memory}"/>
+            <td th:text="${notebook.isUsed}"/>
+            <td th:text="${notebook.frameType}"/>
+            <td th:text="${notebook.price}"/>
+            <td th:text="${notebook.birthday}"/>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
